@@ -1,4 +1,3 @@
-#lgg_dataset.py
 from skimage import io
 import torch
 from torch.utils.data import Dataset
