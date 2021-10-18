@@ -24,11 +24,11 @@ class LGGDataset(Dataset):
         if torch.is_tensor(idx):
             idx = idx.tolist()
 
-        image = io.imread(self.df.image_path[idx])[:, :].astype(np.float32)/255
+        image = io.imread(self.df.image_path[idx])[:, :,1].astype(np.float32)/255
         
         mask = io.imread(self.df.mask_path[idx]).astype(np.float32)/255
 
-        image=image.transpose(2,0,1)
+        image=image.transpose()
         
         mask = np.expand_dims(mask, 0)
 
